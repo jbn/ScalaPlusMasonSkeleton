@@ -1,14 +1,24 @@
-h1. Usage
+h1. Rationale
 
-To quickly create an sbt-based Scala project that uses MASON (and optionally GeoMASON) run the following command:
+I use the same general skeleton for projects using MASON and GeoMASON with Scala over and over. This git repository and script lets me get started quickly.
 
-<pre>
-<code>
-bash -v < <(curl -s https://raw.github.com/jbn/ScalaPlusMasonSkeleton/master/initialize.sh)
-</code>
-</pre>
+h2. Usage
 
-See also:
+First, fetch the project creation script.
+
+<pre><code>wget https://raw.github.com/jbn/ScalaPlusMasonSkeleton/master/make_mason_project.sh</code></pre>
+
+Then, run the script. 
+
+For projects using the core MASON library alone, run:
+
+<pre><code>bash make_mason_project.sh https://raw.github.com/jbn/ScalaPlusMasonSkeleton/master/make_mason_project.sh PROJECT_NAME</code></pre>
+
+For projects that also use GeoMASON, run:
+<pre><code>bash make_mason_project.sh https://raw.github.com/jbn/ScalaPlusMasonSkeleton/master/make_mason_project.sh --with-geomason PROJECT_NAME</code></pre>
+
+
+h3. Links
 
 * "Scala":http://www.scala-lang.org/
 * "sbt":https://github.com/harrah/xsbt
