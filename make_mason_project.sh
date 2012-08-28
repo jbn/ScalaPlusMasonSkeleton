@@ -71,6 +71,7 @@ echo "Fetching GeoMASON and required libraries..."
   wget http://cs.gmu.edu/~eclab/projects/mason/extensions/geomason/jts-1.11.jar
 fi
 
+cd ..
 rm make_mason_project.sh
 cd ..
 echo "DONE!"
