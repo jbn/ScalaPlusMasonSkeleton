@@ -1,0 +1,9 @@
+Where possible, a fetched library's README and LICENSE files is preserved. If
+you think something is missing, visit the sources (and notify me).
+
+Sources:
+  Mason - http://cs.gmu.edu/~eclab/projects/mason/
+  GeoMason - http://cs.gmu.edu/~eclab/projects/mason/extensions/geomason/
+  ECJ - http://cs.gmu.edu/~eclab/projects/ecj/
+  JTS - http://www.vividsolutions.com/jts/jtshome.htm
+  JUNG - http://jung.sourceforge.net/

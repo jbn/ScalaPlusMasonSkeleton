@@ -1,0 +1,26 @@
+# Produced by latex.
+*.pdf
+*.out
+*.aux
+*.snm
+*.toc
+*.nav
+
+# Produced by sbt.
+dist/*
+target/
+lib_managed/
+lib/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Produced by Scala-IDE, if you're into that sort of thing.
+.scala_dependencies
+
+# Produced by Sublime Text, the beautiful text editor.
+*.sublime-workspace
+
+# Random artifacts.
+.DS_Store
+*~
