@@ -1,0 +1,17 @@
+h1. Usage
+
+To quickly create an sbt-based Scala project that uses MASON (and optionally GeoMASON) run the following command:
+
+<pre>
+<code>
+bash -v < <(curl -s https://raw.github.com/jbn/ScalaPlusMasonSkeleton/master/initialize.sh)
+</code>
+</pre>
+
+See also:
+
+* "Scala":http://www.scala-lang.org/
+* "sbt":https://github.com/harrah/xsbt
+* "MASON":http://cs.gmu.edu/~eclab/projects/mason/
+* "GeoMASON":http://cs.gmu.edu/~eclab/projects/mason/extensions/geomason/
+* "JTS":http://www.vividsolutions.com/jts/jtshome.htm  
