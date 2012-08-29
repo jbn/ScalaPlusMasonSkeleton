@@ -4,19 +4,17 @@ I use the same general skeleton for projects using MASON and GeoMASON with Scala
 
 h2. Usage
 
-First, fetch the project creation script.
+The script requires that you have git, wget, and bash installed.
 
-<pre><code>wget https://raw.github.com/jbn/ScalaPlusMasonSkeleton/master/make_mason_project.sh</code></pre>
+To start a project, run:
 
-Then, run the script. 
+<pre><code>wget https://raw.github.com/jbn/ScalaPlusMasonSkeleton/master/make_mason_project.sh; bash -e make_mason_project.sh; rm make_mason_project.sh</code></pre>
 
-For projects using the core MASON library alone, run:
+and follow the input prompts.
 
-<pre><code>bash make_mason_project.sh https://raw.github.com/jbn/ScalaPlusMasonSkeleton/master/make_mason_project.sh PROJECT_NAME</code></pre>
+This will create a new directory with the initialized sbt project. @cd@ to that directory, then run do the obvious:
 
-For projects that also use GeoMASON, run:
-<pre><code>bash make_mason_project.sh https://raw.github.com/jbn/ScalaPlusMasonSkeleton/master/make_mason_project.sh --with-geomason PROJECT_NAME</code></pre>
-
+<pre><code>sbt</code></pre>
 
 h3. Links
 

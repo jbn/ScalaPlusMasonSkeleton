@@ -1,31 +1,36 @@
 #!/bin/bash -e
 
-usage() {
-
-cat << EOF
-Usage: $0 [OPTION EXTENSIONS] project_directory
-
-EXTENSIONS:
-  --with-geomason          # Include GeoMASON
-  --help | -h              # Print usage and exit
-EOF
-
+# translate_template file_name, template_variable, replacement
+translate_template() {
+  # There is probably a better way to do this...
+  FILE_NAME=$1; shift
+  TEMPLATE_VAR=$1; shift
+  REPLACEMENT=$@
+  REPLACEMENT_COMMAND="sed 's/$TEMPLATE_VAR/$REPLACEMENT/gi' < $FILE_NAME > ${FILE_NAME}.tmp"
+  eval $REPLACEMENT_COMMAND
+  mv "${FILE_NAME}.tmp" $FILE_NAME 
 }
 
 PROJECT_DIR=
-WITH_GEOMASON=false
+PROJECT_NAME=
+WITH_GEOMASON=
 
-# I don't know shell scripting at all. I found getopts to be baffling, but 
-# a quick tutorial (http://www.linuxcommand.org/wss0130.php) provided a nice
-# simple method. It's used in the following while loop.
-while [ "$1" != "" ]; do
-  case $1 in
-    --with-geomason )   WITH_GEOMASON=true ;;
-    -h | --help )       usage; exit        ;;
-    *)                  PROJECT_DIR=$1     ;; # XXX: FIX: TODO: hack!
-  esac
-  
-  shift
+while [ "$PROJECT_DIR" == "" ]
+do
+  echo -ne "Project Directory: "
+  read PROJECT_DIR
+done
+
+while [ "$PROJECT_NAME" == "" ]
+do
+  echo -ne "Project Name (for SBT): "
+  read PROJECT_NAME
+done
+
+while [ "$WITH_GEOMASON" == "" ]
+do
+  echo -ne "Include Geomason (y for yes): "
+  read WITH_GEOMASON
 done
 
 if [ -z $PROJECT_DIR ]
@@ -46,6 +51,9 @@ rm -rf .git
 echo "Initializing repository."
 git init
 
+echo "Changing template values."
+translate_template build.sbt TEMPLATE_NAME $PROJECT_NAME
+
 echo "Entering lib."
 cd lib
 
@@ -64,12 +72,13 @@ mv libraries/*.jar ./
 mv libraries/README ./README-MASON-LIBS
 rm -rf libraries libraries.tar.gz
 
-if $WITH_GEOMASON
+if [ $WITH_GEOMASON = "Y" -o $WITH_GEOMASON = "y" ]
 then
 echo "Fetching GeoMASON and required libraries..."
   wget http://cs.gmu.edu/~eclab/projects/mason/extensions/geomason/geomason.1.1.jar
   wget http://cs.gmu.edu/~eclab/projects/mason/extensions/geomason/jts-1.11.jar
 fi
+
 
 cd ..
 rm make_mason_project.sh
