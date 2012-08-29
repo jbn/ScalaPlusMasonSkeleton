@@ -1,4 +1,4 @@
-name := "EDIT_NAME_IN_BUILD_DOT_SBT"
+name := "TEMPLATE_NAME"
 
 version := "0.0.1"
 
