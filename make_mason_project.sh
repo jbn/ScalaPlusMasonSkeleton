@@ -6,7 +6,7 @@ translate_template() {
   FILE_NAME=$1; shift
   TEMPLATE_VAR=$1; shift
   REPLACEMENT=$@
-  REPLACEMENT_COMMAND="sed 's/$TEMPLATE_VAR/$REPLACEMENT/gi' < $FILE_NAME > ${FILE_NAME}.tmp"
+  REPLACEMENT_COMMAND="sed 's/$TEMPLATE_VAR/$REPLACEMENT/g' < $FILE_NAME > ${FILE_NAME}.tmp"
   eval $REPLACEMENT_COMMAND
   mv "${FILE_NAME}.tmp" $FILE_NAME 
 }
